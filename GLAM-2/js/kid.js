@@ -1,14 +1,10 @@
 var kidProducts = [
-    {id: 37, name: "Men Solid Button Up Shirt", price: "₱450"},
-    {id: 38, name: "Men Solid Corduroy Loose Pants", price: "₱220"},
-    {id: 39, name: "Baggy sweat short", price: "₱200"},
-    {id: 40, name: "Solid Drop Shoulder Sweater", price: "₱330"},
-    {id: 41, name: "Men Half Sleeved Polo", price: "₱200"},
-    {id: 42, name: "Men Raglan Hoodie", price: "₱130"},
-    {id: 43, name: "Stringer Tank", price: "₱320"},
-    {id: 44, name: "Light Jeans Loose Fit", price: "₱120"},
-    {id: 45, name: "Boxer Brief", price: "₱100"},
-    {id: 46, name: "Collar Cotton Shirt", price: "₱220"},
+    {id: 101, name: "Girls Floral Print Ruffle Trim Blouse & Overall Dress", price: "₱470"},
+    {id: 102, name: "Coffee Floral Dress", price: "₱420"},
+    {id: 103, name: "Fox Embroidery Dress", price: "₱420"},
+    {id: 104, name: "Little Dinosaur Set For Toddlers", price: "₱420"},
+    {id: 105, name: "2-piece Linen Set", price: "₱320"},
+    {id: 105, name: "Three Piece Kiddy Shorts", price: "₱320"},
 ];
 
 var kidProductsContainer = document.getElementById('kidProductsContainer');

@@ -5,10 +5,6 @@ var plusSizeProducts = [
     {id: 30, name: "Plus Roll Up Denim Shorts", price: "₱330"},
     {id: 31, name: "Plus Tropical Print Drawstring Swimsuit", price: "₱200"},
     {id: 32, name: "Men Plus Size Knitted Short Sleeve", price: "₱130"},
-    {id: 33, name: "Stringer Tank", price: "₱320"},
-    {id: 34, name: "Light Jeans Loose Fit", price: "₱120"},
-    {id: 35, name: "Boxer Brief", price: "₱100"},
-    {id: 36, name: "Collar Cotton Shirt", price: "₱220"},
 ];
 
 var plusSizeProductsContainer = document.getElementById('plusSizeProductsContainer');

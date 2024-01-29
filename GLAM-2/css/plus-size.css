@@ -1,4 +1,4 @@
-.menProductsContainer {
+.plusSizeProductsContainer {
     display: flex;
     flex-wrap: wrap;
     padding: -10px;
@@ -18,7 +18,7 @@
     }
 }
 
-.menProducts {
+.plusSizeProducts {
 overflow: hidden;
 background: #3E4233;
 color: #CBCDC8;

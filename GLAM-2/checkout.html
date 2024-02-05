@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-Out</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/checkout.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+</head>
+<body>
+    <div class="toCheckOutContainer">
+        <h1 style="text-align: center; color: #ceca; font-family: Skeina;">Shipping Information</h1>
+        <form>
+            <label for="email">Email: </label>
+            <input id="email" type="email" placeholder="Email Address" autocomplete="email" required>
+
+            <label for="number">Phone Number </label>
+            <input id="number" type="tel" placeholder="Your Phone Number" required>
+
+            <label for="address">Address </label>
+            <input id="address" type="text" placeholder="Address to deliver" required>
+        </form>
+        <div class="toCheckOut" id="toCheckOut"></div>
+        <h3>Total: ₱<span id="checkOutTotal"></span></h3>
+        <div class="buttonContainer">
+        <button class="cancel" onclick="window.location.href = './index.html'"> Cancel </button>
+        <button type="submit" onclick="checkOut()"> Check-Out</button>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/checkout.js"></script>
+</body>
+</html>

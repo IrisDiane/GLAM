@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <title>GLAM</title>
+</head>
+<body>
+    <div class="header" id="header">
+        <h1 class="headertext"><a style="color: inherit; text-decoration: none; cursor: pointer; outline: none;" href="./index.html">GLAM</a></h1>
+       
+        <div class="container">
+            <form onsubmit="inPageShowResult(keyword.value)">
+            <input type="text" name="text" id="keyword" class="search" placeholder="Search for a Product">
+            </form>
+            <button class="search__btn">
+                <img class="icons" src="/img/search-svgrepo-com.png">
+            </button>
+        </div>
+
+        <div class="iconContainer">
+            <img class="icons" onclick="displayCart()" src="/img/shopping bag.png">
+            <!-- <span class="quantity">0</span> -->
+        </div>
+    </div>
+
+    <div class="cartContainer" id="cartContainer">
+        <button class="closeBtn" onclick="displayCart()"><img src="/img/close.png"></button>
+        <div class="" id="cartProducts">
+            
+        </div>
+
+        <div id="subtotalContainer">
+            <h2 class="subText">Subtotal: ₱<span id="subtotalValue"></span></h2>
+          </div>
+
+        <button class="buyBtn" onclick="buy()">
+            <span class="circle1"></span>
+            <span class="circle2"></span>
+            <span class="circle3"></span>
+            <span class="circle4"></span>
+            <span class="circle5"></span>
+            <span class="text">Buy Now</span>
+        </button>
+    </div>
+
+    <div id="SproductContainer" class="SproductContainer"></div>
+
+    <!-- <footer>
+        
+        
+        <div class="line2"></div>
+
+        <div class="contactContainer">
+            <span class="hover-me">Contact Us!</span>
+            <div class="tooltip">
+              <p>glam@gmail.com</p>
+            </div>
+          </div>
+          
+    </footer>     -->
+
+    <script src="./js/main.js"></script>
+    <script src="./js/search.js"></script>
+</body>
+</html>

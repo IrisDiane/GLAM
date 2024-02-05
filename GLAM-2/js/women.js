@@ -1,14 +1,20 @@
 var womenProducts = [
-    {id: 7, name: "Spaghetti Dress", price: "₱450"},
-    {id: 8, name: "Gingham Collar  Top & Split Hem Skirt", price: "₱220"},
-    {id: 9, name: "Floral Skirt With Split", price: "₱200"},
-    {id: 10, name: "Sleepwear Set", price: "₱330"},
-    {id: 11, name: "Wide Leg Jeans", price: "₱200"},
-    {id: 12, name: "Zipper Sweatshirt", price: "₱130"},
-    {id: 13, name: "Ruched Top With High Waisted Bikini", price: "₱320"},
-    {id: 14, name: "Long Sleeve A-Line Mini Dress", price: "₱120"},
-    {id: 15, name: "Wide Leg Shorts", price: "₱100"},
-    {id: 16, name: "Wide leg trouser", price: "₱220"},
+    {id: 1, name: "Blazer", price: 250 , quantity: 1},
+    {id: 2, name: "Scoop Neck Tee", price: 120 , quantity: 1},
+    {id: 3, name: "Crop Tank Top", price: 100 , quantity: 1},
+    {id: 4, name: "Half Button Placket Tee", price: 230 , quantity: 1},
+    {id: 5, name: "Zipper Corduroy Shorts", price: 130 , quantity: 1},
+    {id: 6, name: "Bikini Swimsuit", price: 245 , quantity: 1},
+    {id: 7, name: "Spaghetti Dress", price: 450 , quantity: 1},
+    {id: 8, name: "Gingham Collar  Top & Split Hem Skirt", price: 220 , quantity: 1},
+    {id: 9, name: "Floral Skirt With Split", price: 200 , quantity: 1},
+    {id: 10, name: "Sleepwear Set", price: 330 , quantity: 1},
+    {id: 11, name: "Wide Leg Jeans", price: 200 , quantity: 1},
+    {id: 12, name: "Zipper Sweatshirt", price: 130 , quantity: 1},
+    {id: 13, name: "Ruched Top With High Waisted Bikini", price: 320 , quantity: 1},
+    {id: 14, name: "Long Sleeve A-Line Mini Dress", price: 120 , quantity: 1},
+    {id: 15, name: "Wide Leg Shorts", price: 100 , quantity: 1},
+    {id: 16, name: "Wide leg trouser", price: 220 , quantity: 1},
 ];
 
 var womenProductsContainer = document.getElementById('womenProductsContainer');
@@ -22,7 +28,7 @@ for (let i = 0; i < womenProducts.length; i++) {
     womenProductDiv.className = "womenProducts"
     var button = "<button class='CartBtn' onclick='" + action + "'><img class='IconContainer' src='/img/cart.png'>Add to Cart</button>";
 
-    womenProductDiv.innerHTML = "<img src='" + source + "'" + "class='photo'>" + "<h1>" + wProduct.name + "</h1>" + "<h2>" + wProduct.price + "</h2>" + button;
+    womenProductDiv.innerHTML = "<img src='" + source + "'" + "class='photo'>" + "<h1>" + wProduct.name + "</h1>" + "<h2> ₱" + wProduct.price + "</h2>" + button;
     womenProductsContainer.appendChild(womenProductDiv);
 }
 

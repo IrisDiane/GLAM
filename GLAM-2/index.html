@@ -6,22 +6,27 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <title>GLAM</title>
 </head>
 <body>
     <div class="header" id="header">
         <h1 class="logotext">GLAM</h1>
         <div class="nav">
+            <h5><a style="text-decoration: underline;" href="./index.html">HOME</a></h5>
             <h5><a href="./women.html">WOMEN</a></h5>
             <h5><a href="./men.html">MEN</a></h5>
             <h5><a href="./plus-size.html">PLUS SIZE</a></h5>
             <h5><a href="./kid.html">KID</a></h5>
         </div>
         <div class="iconContainer">
-            <img class="icons" src="/img/search-svgrepo-com.png">
-            <a href="/user.html"><img class="icons" src="/img/user-alt-1-svgrepo-com.png"></a>
-            <img class="icons" onclick="displayCart()" src="/img/shopping-bag-5-1-svgrepo-com.png">
-            <!-- <span class="quantity">0</span> -->
+            <div class="searchContainer">
+                <img class="icons" src="/img/search-svgrepo-com.png">
+                <form onsubmit="showSearchResult(search.value)">
+                <input id="search" type="text" placeholder="Search for A Product" class="searchBar">
+                </form>
+            </div>
+            <img class="icons" onclick="displayCart()" src="/img/shopping bag.png">
         </div>
     </div>
 
@@ -29,16 +34,24 @@
         <button class="closeBtn" onclick="displayCart()"><img src="/img/close.png"></button>
         <div class="" id="cartProducts">
             
-<button class="buyBtn">
-    <span class="circle1"></span>
-    <span class="circle2"></span>
-    <span class="circle3"></span>
-    <span class="circle4"></span>
-    <span class="circle5"></span>
-    <span class="text">Buy Now</span>
-</button>
-            
         </div>
+
+        <div id="subtotalContainer">
+            <h2 class="subText">Subtotal: ₱<span id="subtotalValue"></span></h2>
+          </div>
+
+        <button class="buyBtn" onclick="buy()">
+            <span class="circle1"></span>
+            <span class="circle2"></span>
+            <span class="circle3"></span>
+            <span class="circle4"></span>
+            <span class="circle5"></span>
+            <span class="text">Buy Now</span>
+        </button>
+
+
+          
+
     </div>
 
     <div class="front-container">
@@ -65,16 +78,29 @@
 
     </div>
 
-<!--     <footer>
-        <div class="logofooter">GLAM</div>
-        <div class="line1"></div>
+    <footer>
+        
+        <!-- <div class="line1"></div> -->
         <div class="line2"></div>
+
+        <div class="contactContainer">
+            <a href="mailto:glam@gmail.com">
+                <span class="hover-me">Contact Us!</span>
+                <div class="tooltip">
+                    <p>glam@gmail.com</p>
+                </div>
+            </a>
+        </div>
+        
+          
 
         
         
-    </footer>    -->
+        
+    </footer>   
 
     <script src="./js/main.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/search.js"></script>
 </body>
 </html>

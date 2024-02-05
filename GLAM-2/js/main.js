@@ -29,6 +29,7 @@ const cartContainer = document.getElementById("cartContainer");
 const productsInCart = document.getElementById("cartProducts")
 var cartedProducts = [];
 
+
 //checks if there is a product in cart innitially
 var innitCartedProducts = JSON.parse(localStorage.getItem('cartedProducts'));
 
@@ -51,12 +52,13 @@ function cartFunction() {
         "<label><input type='radio' id='value-3' name='value-radio' value='value-3'><span>L</span></label>" +
         "<span class='selection'></span>" +
         "</div>";
-        var quantity = "<div class='quantityContainer' id='quantity'> <label for='quantityCounter'> Quantity:<input id='quantityCounter' class='quantityCounter' type='number' oninput='preventNull(this)'></div>"
+        var quantity = "<div class='quantityContainer' id='quantity'> <label for='quantityCounter'> Quantity:<input id='quantityCounter' class='quantityCounter' type='number' value="+ cartedProduct.quantity +" oninput='preventNull(this, "+ i +")'></div>"
     
-        cartDiv.innerHTML = "<img src='" + source + "'" + "class='cartPhoto'>" + "<div class='text'>" + "<p>"+ cartedProduct.name +"</p> <h1>" + cartedProduct.price + "</h1>" + sizes + quantity + "</div>" + cancelButton ;
+        cartDiv.innerHTML = "<img src='" + source + "'" + "class='cartPhoto'>" + "<div class='text'>" + "<p>"+ cartedProduct.name +"</p> <h1> ₱" + cartedProduct.price + "</h1>" + sizes + quantity + "</div>" + cancelButton ;
         productsInCart.appendChild(cartDiv)
         cartedProducts = innitCartedProducts;
-    }
+    }   
+    calcSubTotal();
     
     }
 }
@@ -73,7 +75,10 @@ function addToCart(index) {
     }
 }
 
+
+
 function addedAProduct() {
+    calcSubTotal();
     var cartIndex = currentCartIndex(); 
     var cartProduct = cartedProducts[cartIndex];
     var cartDiv = document.createElement('div');
@@ -86,12 +91,14 @@ function addedAProduct() {
     "<label><input type='radio' id='value-3' name='value-radio' value='value-3'><span>L</span></label>" +
     "<span class='selection'></span>" +
     "</div>";
-    var quantity = "<div class='quantityContainer' id='quantity'> <label for='quantityCounter'> Quantity:<input id='quantityCounter' class='quantityCounter' type='number' oninput='preventNull(this)'></div>"
+    var quantity = "<div class='quantityContainer' id='quantity'> <label for='quantityCounter'> Quantity:<input id='quantityCounter' class='quantityCounter' value="+ cartProduct.quantity +" type='number' oninput='preventNull(this, "+ cartIndex +")'></div>"
 
     var source = "./img/" + cartProduct.name + ".jpg"
-    cartDiv.innerHTML = "<img src='" + source + "'" + "class='cartPhoto'>" + "<div class='text'>" + "<p>"+ cartProduct.name +"</p> <h1>" + cartProduct.price + "</h1>" + sizes + quantity + "</div>" + cancelButton;
+    cartDiv.innerHTML = "<img src='" + source + "'" + "class='cartPhoto'>" + "<div class='text'>" + "<p>"+ cartProduct.name +"</p> <h1> ₱" + cartProduct.price + "</h1>" + sizes + quantity + "</div>" + cancelButton;
     productsInCart.appendChild(cartDiv);
+
 }
+
 
 function currentCartIndex() {
     if (cartedProducts.length === 1) {
@@ -114,22 +121,77 @@ function displayCart() {
     }
 }
 
-function preventNull(input) {
-    var value = Number(input.value);
-    
-    if (value <= 0) {
-      input.value = 1;
-    }
-
-    calculateSubTotal(input.value)
-}
-
-function calculateSubTotal(count) {
-}
 
 function removeProduct(index) {
     cartedProducts.splice(index, 1);
     localStorage.setItem('cartedProducts', JSON.stringify(cartedProducts));
     productsInCart.innerHTML = '';
     cartFunction();
+    calcSubTotal();
+}
+
+function preventNull(input, index) {
+    if (input.value < 1) {
+        input.value = 1;
+    }
+    cartedProducts[index].quantity = input.value;
+    localStorage.setItem('cartedProducts', JSON.stringify(cartedProducts));
+    calcSubTotal();
+}
+
+function calcSubTotal() {
+    var total = 0;
+    cartedProducts = JSON.parse(localStorage.getItem('cartedProducts'))
+    for (let i = 0; i < cartedProducts.length; i++) {
+        const product = cartedProducts[i];
+        const productprice = product.price;
+        const productQuantity = product.quantity;
+
+        const subtotal  = productQuantity * productprice;
+        total = total + subtotal
+    }
+    console.log(cartedProducts)
+    console.log(total)
+    document.getElementById('subtotalValue').innerHTML = total;
+    return total;
+}
+
+function calcSubTotalForCheckout() {
+    var total = 0;
+    cartedProducts = JSON.parse(localStorage.getItem('cartedProducts'))
+    for (let i = 0; i < cartedProducts.length; i++) {
+        const product = cartedProducts[i];
+        const productprice = product.price;
+        const productQuantity = product.quantity;
+
+        const subtotal  = productQuantity * productprice;
+        total = total + subtotal
+    }
+    console.log(cartedProducts)
+    console.log(total)
+    return total;
+}
+
+function buy() {
+    const total = calcSubTotal();
+    if (total === 0) {
+        window.alert("Please add a product first.")
+    } else {
+        window.location.href = "./checkout.html";
+    }
+}
+
+function checkOut() {
+    var email = document.getElementById('email').value;
+    var number = document.getElementById('number').value;
+    var address = document.getElementById('address').value;
+
+    if (!email || !number || !address) {
+        window.alert("Please fill in the shipping information. Thank you!")
+    } else {
+        localStorage.clear();
+        cartedProducts = [];
+        window.alert("Success!! Thank you for shopping with GLAM! Shop the look!")
+        window.location.href = "./index.html"
+    }
 }
